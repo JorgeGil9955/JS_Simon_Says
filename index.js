@@ -86,6 +86,7 @@ const gameOver = () => {
 $("#play-btn").click(() => {
     if(!gameStarted){
         gameStarted = true
+        roundCount = 1
         $("#play-btn").hide()
         nextSequence()
     } 
