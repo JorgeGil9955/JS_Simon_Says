@@ -7,6 +7,14 @@ let gameStarted = false
 var roundCount = 1
 
 
+const updateTopScore = () => {
+    let topScore = localStorage.getItem("top-score")? localStorage.getItem("top-score") : 0
+    if(roundCount > topScore){
+        localStorage.setItem("top-score", roundCount-1)
+    }
+    $("#top-score").text("Top score: " + topScore)
+}
+updateTopScore()
 
 const nextSequence = async () => {
     $("#level-title").text("Level "+ roundCount)
@@ -61,6 +69,7 @@ const checkAnswer = () => {
 const gameOver = () => {
     userTurn = false
     gameStarted = false
+    updateTopScore()
     roundCount = 1
     gamePattern.length = 0
     userClickedPattern.length = 0
