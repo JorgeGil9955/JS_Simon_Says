@@ -27,7 +27,6 @@ const nextSequence = async () => {
     let randomChosenColour = buttonColours[randomNumber]
 
     gamePattern.push(randomChosenColour)
-    console.log(randomChosenColour)
 
     for (let i = 0; i < gamePattern.length-1; i++){
         $("#" + gamePattern[i]).fadeOut(100).fadeIn(100)
@@ -62,7 +61,6 @@ const checkAnswer = () => {
         return
     }
     if((userClickedPattern.length === gamePattern.length) && (userClickedPattern[userClickedPattern.length - 1] === gamePattern[gamePattern.length - 1])){
-        console.log(userClickedPattern[userClickedPattern.length])
         nextSequence()
     }
 }
